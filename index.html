@@ -60,13 +60,13 @@
         <h2>حاسبة بيوت قطر</h2>
 <h3>عشان تحسب، دخل رقم في خانتين من الخانات واضغط على احسب والحاسبة راح تحسب الرقم الناقص، وبعدها عشان حسبة ثانية اضغط على مسح الحقول واكتب الارقام مرة ثانية</h3>
         <label for="meters">المتر:</label>
-        <input type="number" id="meters" step="0.01" placeholder="أدخل المتر"><br>
+        <input type="number" id="meters" step="10" placeholder="أدخل المتر" inputmode="numeric"><br>
 
         <label for="price">سعر الفوت:</label>
-        <input type="number" id="price" step="0.01" placeholder="سعر الفوت"><br>
+        <input type="number" id="price" step="10" placeholder="سعر الفوت" inputmode="numeric"><br>
 
         <label for="total"> سعر البيت:</label>
-        <input type="number" id="total" step="0.01" placeholder="سعر البيت"><br><br>
+        <input type="number" id="total" step="10" placeholder="سعر البيت" inputmode="numeric"><br><br>
 
         <button onclick="calculate()">احسب</button>
         <button onclick="clearFields()">مسح الحقول</button>

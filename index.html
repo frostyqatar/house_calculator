@@ -6,114 +6,183 @@
     <title>حاسبة بيوت قطر</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 50px;
-            background-color: #f4f4f4; /* Background color */
-            text-align: right; /* Align text to the right */
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
         }
-        label {
-            margin-left: 10px; /* Adjusted for RTL */
-            display: block; /* Improved layout */
-            font-weight: bold; /* Bold labels */
-            color: #333; /* Darker text color */
-        }
-        input {
-            margin-bottom: 15px; /* Increased spacing */
-            padding: 10px; /* Increased padding for better input appearance */
-            width: 100%; /* Full width inputs */
-            box-sizing: border-box; /* Ensures padding is included in width */
-            border: 1px solid #ccc; /* Border for inputs */
-            border-radius: 4px; /* Rounded corners */
-            transition: border-color 0.3s; /* Smooth border color transition */
-        }
-        input:focus {
-            border-color: #007BFF; /* Highlight border on focus */
-            outline: none; /* Remove default outline */
+        .container-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .container {
-            max-width: 400px; /* Increased max width */
-            background-color: #fff; /* Container background */
-            padding: 30px; /* Increased padding */
-            border-radius: 8px; /* More rounded corners */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-            margin: auto; /* Center the container */
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: calc(50% - 20px);
+            min-width: 300px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        h3 {
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
         button {
-            margin-top: 10px; /* Spacing for buttons */
-            padding: 12px; /* Increased padding for buttons */
-            width: 100%; /* Full width buttons */
-            cursor: pointer; /* Pointer cursor on hover */
-            background-color: #007BFF; /* Button background color */
-            color: white; /* Button text color */
-            border: none; /* Remove default border */
-            border-radius: 4px; /* Rounded corners */
-            font-size: 16px; /* Increased font size */
-            transition: background-color 0.3s; /* Smooth background color transition */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #0056b3; /* Darker shade on hover */
+            background-color: #45a049;
+        }
+        button:last-child {
+            background-color: #f44336;
+        }
+        button:last-child:hover {
+            background-color: #da190b;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>حاسبة بيوت قطر</h2>
-<h3>عشان تحسب، دخل رقم في خانتين من الخانات واضغط على احسب والحاسبة راح تحسب الرقم الناقص، وبعدها عشان حسبة ثانية اضغط على مسح الحقول واكتب الارقام مرة ثانية</h3>
-        <label for="meters">المتر:</label>
-        <input type="number" id="meters" step="10" placeholder="أدخل المتر" inputmode="numeric"><br>
+    <div class="container-wrapper">
+        <div class="container">
+            <h2>حاسبة بيوت قطر</h2>
+            <h3>عشان تحسب، دخل رقم في خانتين من الخانات واضغط على احسب</h3>
+            <label for="meters">المتر:</label>
+            <input type="number" id="meters" step="10" placeholder="أدخل المتر" inputmode="numeric">
 
-        <label for="price">سعر الفوت:</label>
-        <input type="number" id="price" step="10" placeholder="سعر الفوت" inputmode="numeric"><br>
+            <label for="price">سعر المتر:</label>
+            <input type="number" id="price" step="10" placeholder="سعر المتر" inputmode="numeric">
 
-        <label for="total"> سعر البيت:</label>
-        <input type="number" id="total" step="10" placeholder="سعر البيت" inputmode="numeric"><br><br>
+            <label for="total">سعر البيت:</label>
+            <input type="number" id="total" step="10" placeholder="سعر البيت" inputmode="numeric">
 
-        <button onclick="calculate()">احسب</button>
-        <button onclick="clearFields()">مسح الحقول</button>
+            <button onclick="calculate()">احسب</button>
+            <button onclick="clearFields()">مسح الحقول</button>
+        </div>
+
+        <div class="container">
+            <h2>حاسبة تكلفة البنيان</h2>
+            <label for="houseMeters">المتر في البيت:</label>
+            <input type="number" id="houseMeters" step="10" placeholder="أدخل المتر في البيت" inputmode="numeric">
+
+            <label for="areaPrice">سعر المتر في المنطقة:</label>
+            <input type="number" id="areaPrice" min="0" max="10000" step="10" placeholder="سعر المتر في المنطقة" inputmode="numeric">
+
+            <label for="sellerPrice">سعر المتر المطلوب:</label>
+            <input type="number" id="sellerPrice" min="0" max="10000" step="10" placeholder="سعر المتر المطلوب" inputmode="numeric">
+
+            <label for="housePriceArea">سعر الأرض بحسب المنطقة:</label>
+            <input type="number" id="housePriceArea" placeholder="سعر البيت بحسب المنطقة" readonly>
+
+            <label for="housePriceSeller">سعر البيت بحسب طلب البائع:</label>
+            <input type="number" id="housePriceSeller" placeholder="سعر البيت بحسب طلب البائع" readonly>
+
+            <label for="priceDifference">الفرق بين السعرين:</label>
+            <input type="number" id="priceDifference" placeholder="الفرق بين السعرين" readonly>
+
+            <button onclick="calculateHousePrice()">احسب</button>
+            <button onclick="clearHouseFields()">مسح الحقول</button>
+        </div>
     </div>
 
     <script>
+
+        const meterToFoot = 10.76391041671;
+
         function calculate() {
-            const meterToFoot = 10.76391041671;
             let meters = parseFloat(document.getElementById('meters').value);
             let pricePerFoot = parseFloat(document.getElementById('price').value);
             let totalPrice = parseFloat(document.getElementById('total').value);
 
-            // Only calculate if exactly two values are entered
-            const valuesEntered = [meters, pricePerFoot, totalPrice].filter(value => !isNaN(value)).length;
-            if (valuesEntered !== 2) {
-                alert("Please enter exactly two values to calculate the third one.");
-                return;
-            }
-
-            // If meters and price per foot are entered, calculate total price
             if (!isNaN(meters) && !isNaN(pricePerFoot) && isNaN(totalPrice)) {
                 let feet = meters * meterToFoot;
                 let calculatedTotal = feet * pricePerFoot;
                 document.getElementById('total').value = calculatedTotal.toFixed(2);
-            }
-
-            // If meters and total price are entered, calculate price per foot
-            if (!isNaN(meters) && isNaN(pricePerFoot) && !isNaN(totalPrice)) {
+            } else if (!isNaN(meters) && isNaN(pricePerFoot) && !isNaN(totalPrice)) {
                 let feet = meters * meterToFoot;
                 let calculatedPricePerFoot = totalPrice / feet;
                 document.getElementById('price').value = calculatedPricePerFoot.toFixed(2);
-            }
-
-            // If price per foot and total price are entered, calculate meters
-            if (isNaN(meters) && !isNaN(pricePerFoot) && !isNaN(totalPrice)) {
+            } else if (isNaN(meters) && !isNaN(pricePerFoot) && !isNaN(totalPrice)) {
                 let feet = totalPrice / pricePerFoot;
                 let calculatedMeters = feet / meterToFoot;
                 document.getElementById('meters').value = calculatedMeters.toFixed(2);
+            } else {
+                alert("الرجاء إدخال قيمتين فقط لحساب القيمة الثالثة.");
             }
         }
 
-        // Clear all fields
         function clearFields() {
             document.getElementById('meters').value = '';
             document.getElementById('price').value = '';
             document.getElementById('total').value = '';
         }
+
+        function updateAreaPriceOutput(value) {
+            document.getElementById('areaPriceOutput').textContent = value;
+        }
+
+        function updateSellerPriceOutput(value) {
+            document.getElementById('sellerPriceOutput').textContent = value;
+        }
+
+        function calculateHousePrice() {
+            let houseMeters = parseFloat(document.getElementById('houseMeters').value);
+            let areaPrice = parseFloat(document.getElementById('areaPrice').value);
+            let sellerPrice = parseFloat(document.getElementById('sellerPrice').value);
+
+            if (!isNaN(houseMeters) && !isNaN(areaPrice) && !isNaN(sellerPrice)) {
+                let houseFeet = houseMeters * meterToFoot;
+                let housePriceArea = houseFeet * areaPrice;
+                let housePriceSeller = houseFeet * sellerPrice;
+                let priceDifference = housePriceSeller - housePriceArea;
+
+                document.getElementById('housePriceArea').value = housePriceArea.toFixed(2);
+                document.getElementById('housePriceSeller').value = housePriceSeller.toFixed(2);
+                document.getElementById('priceDifference').value = priceDifference.toFixed(2);
+            } else {
+                alert("الرجاء إدخال قيم صحيحة.");
+            }
+        }
+
+        function clearHouseFields() {
+            document.getElementById('houseMeters').value = '';
+            document.getElementById('areaPrice').value = 500;
+            document.getElementById('sellerPrice').value = 500;
+            document.getElementById('housePriceArea').value = '';
+            document.getElementById('housePriceSeller').value = '';
+            document.getElementById('priceDifference').value = '';
+            updateAreaPriceOutput(500);
+            updateSellerPriceOutput(500);
+        }
     </script>
 </body>
 </html>
+    
